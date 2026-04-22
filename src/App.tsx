@@ -157,7 +157,7 @@ function StockControl({
         <Minus className="w-4 h-4 text-red-500" />
       </button>
       <span
-        className={`min-w-[40px] h-11 flex items-center justify-center font-mono text-sm font-bold ${
+        className={`min-w-10 h-11 flex items-center justify-center font-mono text-sm font-bold ${
           critical ? 'text-red-400' : 'text-zinc-100'
         }`}
       >
@@ -448,7 +448,7 @@ export default function App() {
             {activeTab === tab.id && (
               <motion.div
                 layoutId="tab-underline"
-                className="absolute bottom-0 left-0 right-0 h-[2px]"
+                className="absolute bottom-0 left-0 right-0 h-0.5"
                 style={{ background: tab.color, boxShadow: `0 0 8px ${tab.color}` }}
               />
             )}
@@ -836,7 +836,7 @@ export default function App() {
       {/* ── Add Product Modal ── */}
       <AnimatePresence>
         {isModalOpen && (
-          <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center bg-black/90 backdrop-blur-md">
+          <div className="fixed inset-0 z-100 flex items-end sm:items-center justify-center bg-black/90 backdrop-blur-md">
             <motion.div
               initial={{ opacity: 0, y: 60 }}
               animate={{ opacity: 1, y: 0 }}
@@ -962,7 +962,7 @@ export default function App() {
       {/* ── Edit Product Modal ── */}
       <AnimatePresence>
         {editingProduct && (
-          <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center bg-black/90 backdrop-blur-md">
+          <div className="fixed inset-0 z-100 flex items-end sm:items-center justify-center bg-black/90 backdrop-blur-md">
             <motion.div
               initial={{ opacity: 0, y: 60 }}
               animate={{ opacity: 1, y: 0 }}
