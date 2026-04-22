@@ -1,0 +1,61 @@
+{
+  "inventory": [
+    { "id": "1", "nombre": "Harina PAN", "marca_referencial": "Empresas Polar", "cantidad_actual": 2, "cantidad_minima_alerta": 2, "unidad": "kg", "categoria": "Víveres" },
+    { "id": "2", "nombre": "Arroz Primicia", "marca_referencial": "Cargill", "cantidad_actual": 1, "cantidad_minima_alerta": 1, "unidad": "kg", "categoria": "Víveres" },
+    { "id": "3", "nombre": "Pasta Capri", "marca_referencial": "Capri", "cantidad_actual": 0.5, "cantidad_minima_alerta": 1, "unidad": "kg", "categoria": "Víveres" },
+    { "id": "4", "nombre": "Aceite Vegetal", "marca_referencial": "Diana/Vatel", "cantidad_actual": 1, "cantidad_minima_alerta": 0.5, "unidad": "litros", "categoria": "Víveres" },
+    { "id": "5", "nombre": "Café Fama de América", "marca_referencial": "Fama de América", "cantidad_actual": 0.25, "cantidad_minima_alerta": 0.5, "unidad": "kg", "categoria": "Víveres" },
+    { "id": "6", "nombre": "Azúcar Montalbán", "marca_referencial": "Montalbán", "cantidad_actual": 2, "cantidad_minima_alerta": 1, "unidad": "kg", "categoria": "Víveres" },
+    { "id": "7", "nombre": "Pollo Entero", "marca_referencial": "Seryca/Pica Pollo", "cantidad_actual": 1.5, "cantidad_minima_alerta": 2, "unidad": "kg", "categoria": "Refrigerados" },
+    { "id": "8", "nombre": "Carne Molida", "marca_referencial": "Premium", "cantidad_actual": 1, "cantidad_minima_alerta": 1, "unidad": "kg", "categoria": "Refrigerados" },
+    { "id": "9", "nombre": "Huevos (Cartón)", "marca_referencial": "Granja", "cantidad_actual": 12, "cantidad_minima_alerta": 15, "unidad": "unidades", "categoria": "Refrigerados" },
+    { "id": "10", "nombre": "Queso Semiduro", "marca_referencial": "Local", "cantidad_actual": 0.8, "cantidad_minima_alerta": 1, "unidad": "kg", "categoria": "Refrigerados" },
+    { "id": "11", "nombre": "Queso Palmito", "marca_referencial": "Local", "cantidad_actual": 0.5, "cantidad_minima_alerta": 0.5, "unidad": "kg", "categoria": "Refrigerados" },
+    { "id": "12", "nombre": "Jabón de Baño Protex", "marca_referencial": "Protex", "cantidad_actual": 2, "cantidad_minima_alerta": 3, "unidad": "unidades", "categoria": "Higiene" },
+    { "id": "13", "nombre": "Detergente Las Llaves", "marca_referencial": "Alfonzo Rivas", "cantidad_actual": 1, "cantidad_minima_alerta": 1, "unidad": "kg", "categoria": "Limpieza" },
+    { "id": "14", "nombre": "Papel Toallín", "marca_referencial": "Scott", "cantidad_actual": 1, "cantidad_minima_alerta": 2, "unidad": "unidades", "categoria": "Higiene" },
+    { "id": "15", "nombre": "Sal Marina", "marca_referencial": "Lobos", "cantidad_actual": 1, "cantidad_minima_alerta": 0.5, "unidad": "kg", "categoria": "Víveres" },
+    { "id": "16", "nombre": "Margarina Mavesa", "marca_referencial": "Polar", "cantidad_actual": 0.5, "cantidad_minima_alerta": 0.25, "unidad": "kg", "categoria": "Refrigerados" },
+    { "id": "17", "nombre": "Leche en Polvo", "marca_referencial": "La Campesina", "cantidad_actual": 0.9, "cantidad_minima_alerta": 1, "unidad": "kg", "categoria": "Víveres" },
+    { "id": "18", "nombre": "Mayonesa Mavesa", "marca_referencial": "Polar", "cantidad_actual": 0.445, "cantidad_minima_alerta": 0.2, "unidad": "kg", "categoria": "Víveres" },
+    { "id": "19", "nombre": "Salsa de Tomate Pampero", "marca_referencial": "Pampero", "cantidad_actual": 0.397, "cantidad_minima_alerta": 0.2, "unidad": "kg", "categoria": "Víveres" },
+    { "id": "20", "nombre": "Caraotas Negras", "marca_referencial": "Mary", "cantidad_actual": 0.5, "cantidad_minima_alerta": 1, "unidad": "kg", "categoria": "Víveres" },
+    { "id": "21", "nombre": "Atún en Lata", "marca_referencial": "Eveba", "cantidad_actual": 3, "cantidad_minima_alerta": 4, "unidad": "unidades", "categoria": "Víveres" },
+    { "id": "22", "nombre": "Lavatrastes Axion", "marca_referencial": "Colgate", "cantidad_actual": 1, "cantidad_minima_alerta": 1, "unidad": "unidades", "categoria": "Limpieza" },
+    { "id": "23", "nombre": "Cloro Los Andes", "marca_referencial": "Los Andes", "cantidad_actual": 2, "cantidad_minima_alerta": 1, "unidad": "litros", "categoria": "Limpieza" },
+    { "id": "24", "nombre": "Suavizante", "marca_referencial": "Las Llaves", "cantidad_actual": 0.5, "cantidad_minima_alerta": 1, "unidad": "litros", "categoria": "Limpieza" },
+    { "id": "25", "nombre": "Shampoo PANTENE", "marca_referencial": "P&G", "cantidad_actual": 1, "cantidad_minima_alerta": 1, "unidad": "unidades", "categoria": "Higiene" },
+    { "id": "26", "nombre": "Crema Dental Colgate", "marca_referencial": "Colgate", "cantidad_actual": 1, "cantidad_minima_alerta": 1, "unidad": "unidades", "categoria": "Higiene" },
+    { "id": "27", "nombre": "Desodorante Speed Stick", "marca_referencial": "Mennen", "cantidad_actual": 1, "cantidad_minima_alerta": 1, "unidad": "unidades", "categoria": "Higiene" },
+    { "id": "28", "nombre": "Mortadela Tapara", "marca_referencial": "Plumrose", "cantidad_actual": 0, "cantidad_minima_alerta": 0.5, "unidad": "kg", "categoria": "Refrigerados" },
+    { "id": "29", "nombre": "Jamón de Espalda", "marca_referencial": "Arichuna", "cantidad_actual": 0.2, "cantidad_minima_alerta": 0.5, "unidad": "kg", "categoria": "Refrigerados" },
+    { "id": "30", "nombre": "Pan de Sándwich", "marca_referencial": "Bimbo", "cantidad_actual": 1, "cantidad_minima_alerta": 1, "unidad": "unidades", "categoria": "Víveres" }
+  ],
+  "recipes": [
+    {
+      "id": "r1",
+      "nombre": "Arepa con Queso",
+      "ingredientes": [
+        { "nombre": "Harina PAN", "cantidad": 0.1 },
+        { "nombre": "Queso Semiduro", "cantidad": 0.05 }
+      ]
+    },
+    {
+      "id": "r2",
+      "nombre": "Pasta Bolognesa",
+      "ingredientes": [
+        { "nombre": "Pasta Capri", "cantidad": 0.25 },
+        { "nombre": "Carne Molida", "cantidad": 0.2 },
+        { "nombre": "Salsa de Tomate Pampero", "cantidad": 0.1 }
+      ]
+    },
+    {
+      "id": "r3",
+      "nombre": "Arroz con Pollo",
+      "ingredientes": [
+        { "nombre": "Arroz Primicia", "cantidad": 0.2 },
+        { "nombre": "Pollo Entero", "cantidad": 0.5 }
+      ]
+    }
+  ]
+}
