@@ -36,29 +36,28 @@ async function startServer() {
   const app = express();
   const PORT = 3000;
 
-  // Initialize Lowdb
   const db = await JSONFilePreset<Data>('/db.json', defaultData);
 
   app.use(cors());
   app.use(express.json());
 
-  // --- API Routes ---
-
-  // Get all inventory
+  // GET all inventory
   app.get('/api/inventory', (req, res) => {
     res.json(db.data.inventory);
   });
 
-  // Get shopping list (critical stock)
+  // GET shopping list (items at or below minimum threshold)
   app.get('/api/shopping-list', (req, res) => {
-    const list = db.data.inventory.filter(item => item.cantidad_actual <= item.cantidad_minima_alerta);
+    const list = db.data.inventory.filter(
+      item => item.cantidad_actual <= item.cantidad_minima_alerta
+    );
     res.json(list);
   });
 
-  // Register purchase
+  // POST register purchase (bulk stock update)
   app.post('/api/purchase', async (req, res) => {
     const itemsPurchased: { id: string; cantidad: number }[] = req.body.items;
-    
+
     if (!itemsPurchased || !Array.isArray(itemsPurchased)) {
       return res.status(400).json({ error: 'Lista de items inválida' });
     }
@@ -74,10 +73,10 @@ async function startServer() {
     res.json({ message: 'Stock actualizado con éxito', inventory: db.data.inventory });
   });
 
-  // Add new product
+  // POST add new product
   app.post('/api/inventory/add', async (req, res) => {
     const { nombre, marca_referencial, cantidad_actual, cantidad_minima_alerta, unidad, categoria } = req.body;
-    
+
     if (!nombre || !categoria) {
       return res.status(400).json({ error: 'Nombre y Categoría son requeridos' });
     }
@@ -89,7 +88,7 @@ async function startServer() {
       cantidad_actual: Number(cantidad_actual) || 0,
       cantidad_minima_alerta: Number(cantidad_minima_alerta) || 1,
       unidad: unidad || 'unidades',
-      categoria
+      categoria,
     };
 
     db.data.inventory.push(newProduct);
@@ -97,12 +96,27 @@ async function startServer() {
     res.json(newProduct);
   });
 
-  // Update single item stock manually
+  // PUT update a product's full details
+  app.put('/api/inventory/:id', async (req, res) => {
+    const { id } = req.params;
+    const updates = req.body;
+    const product = db.data.inventory.find(p => p.id === id);
+
+    if (!product) {
+      return res.status(404).json({ error: 'Producto no encontrado' });
+    }
+
+    Object.assign(product, updates);
+    await db.write();
+    res.json(product);
+  });
+
+  // PATCH update only the stock quantity of a single item
   app.post('/api/inventory/update', async (req, res) => {
     const { id, cantidad_actual } = req.body;
     const product = db.data.inventory.find(p => p.id === id);
     if (product) {
-      product.cantidad_actual = cantidad_actual;
+      product.cantidad_actual = Number(cantidad_actual);
       await db.write();
       res.json(product);
     } else {
@@ -110,7 +124,21 @@ async function startServer() {
     }
   });
 
-  // Suggested recipes (diskarte logic)
+  // DELETE a product
+  app.delete('/api/inventory/:id', async (req, res) => {
+    const { id } = req.params;
+    const idx = db.data.inventory.findIndex(p => p.id === id);
+
+    if (idx === -1) {
+      return res.status(404).json({ error: 'Producto no encontrado' });
+    }
+
+    db.data.inventory.splice(idx, 1);
+    await db.write();
+    res.json({ message: 'Producto eliminado', id });
+  });
+
+  // GET suggested recipes (all ingredients available)
   app.get('/api/recipes/suggested', (req, res) => {
     const availableRecipes = db.data.recipes.filter(recipe => {
       return recipe.ingredientes.every(ing => {
@@ -121,7 +149,7 @@ async function startServer() {
     res.json(availableRecipes);
   });
 
-  // --- Vite Middleware ---
+  // Vite middleware
   if (process.env.NODE_ENV !== 'production') {
     const vite = await createViteServer({
       server: { middlewareMode: true },
@@ -131,7 +159,7 @@ async function startServer() {
   } else {
     const distPath = path.join(process.cwd(), 'dist');
     app.use(express.static(distPath));
-    app.get('*', (req, res) => {
+    app.get('*', (_req, res) => {
       res.sendFile(path.join(distPath, 'index.html'));
     });
   }
